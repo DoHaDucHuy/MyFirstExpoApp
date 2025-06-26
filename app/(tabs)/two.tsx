@@ -1,10 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  StyleSheet,
+  Alert,
+} from "react-native";
 
 export default function LoginScreen({ onLogin }: { onLogin?: () => void }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const handleBtnLogin = () => {
+    Alert.alert("Bạn đã nhấn nút [Login]!");
+  };
   return (
     <View style={styles.container}>
       {/* Logo phía trên khu vực input */}
@@ -14,7 +23,7 @@ export default function LoginScreen({ onLogin }: { onLogin?: () => void }) {
       <Text style={styles.title}>Đăng nhập Facebook</Text>
       <TextInput
         style={styles.input}
-        placeholder="Email hoặc số điện thoại"
+        placeholder="Email hoặc số điện thoại A"
         value={email}
         onChangeText={setEmail}
         autoCapitalize="none"
@@ -29,7 +38,7 @@ export default function LoginScreen({ onLogin }: { onLogin?: () => void }) {
         secureTextEntry
         placeholderTextColor="#888"
       />
-      <Pressable style={styles.button} onPress={onLogin}>
+      <Pressable style={styles.button} onPress={handleBtnLogin}>
         <Text style={styles.buttonText}>Đăng nhập</Text>
       </Pressable>
       <Text style={styles.forgot}>Quên mật khẩu?</Text>
